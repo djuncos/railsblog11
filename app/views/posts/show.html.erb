@@ -35,11 +35,24 @@
 	<div class="comment_container">
 		<% @comments.each do |comment| %>
 			<div class="each_comment">
-				<li> 
+				<li>
+
 					<%= link_to (image_tag comment.user.avatar.url(:baby)), comment.user %>
 					<div class="comment_body">
 						<%= comment.body %>
 					</div>
+
+					<div class="back_edit">
+					<% if current_user.id == comment.user.id %>
+
+					<!-- # <%= link_to 'Edit', edit_post_path(@post) %>  | -->
+
+					
+
+					<%= link_to "Delete", comment_path(comment), method: :delete %>
+					<% end %>
+
+
 				</li>
 			</div>
 		<% end %>
