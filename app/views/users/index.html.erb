@@ -5,8 +5,8 @@
   <% end %>
 
 <% @users.each do |user| %>
-<td><%= link_to (image_tag user.avatar.url(:lilguy)), user %></td>
-<li><%= link_to user.username, user %></li>
+<td><%= link_to (image_tag user.avatar.url(:baby)), user %></td>
+<li class="li_trans"><%= link_to user.username, user %></li>
 <% end %>
 
 

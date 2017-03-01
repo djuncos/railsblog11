@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
 
 		belongs_to :user
+		has_many :comments
 
 
 		has_attached_file :image, styles: { biggest: "600x600>", regular: "300x300>"}

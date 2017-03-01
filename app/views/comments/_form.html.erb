@@ -1,0 +1,22 @@
+
+
+<%= form_for(@comment) do |f| %>
+
+	<div class="field comment_body">
+	   <%= f.label :body, "Comment" %>
+	   <div class="new_comment_body">
+	   <%= f.text_area :body %>
+	   </div>
+
+	   <%= hidden_field_tag :post_id, @post.id %>
+
+
+	   <div class="actions">
+	    <%= f.submit class: "btn btn-primary"%>
+	  </div>
+	</div>
+
+
+
+
+<% end %>

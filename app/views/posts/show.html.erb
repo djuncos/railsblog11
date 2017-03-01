@@ -7,7 +7,12 @@
 	<div class="back_edit"><%= link_to 'Back', home_index_url %>
 <% if current_user.id == @post.user.id %>
 | <%= link_to 'Edit', edit_post_path(@post) %> 
-<% end %></div>
+<% end %>
+
+<!-- | <%= link_to 'Comment' %> -->
+	
+
+</div>
 
 
  <% if flash[:notice] %>
@@ -23,7 +28,34 @@
 	    <% end %></div>
 
 	<div class="post_body"><%= @post.body %></div>
-</div>
+
+
+	<div class="comments_and_form_container">
+	<% if @comments.count > 0%>
+	<div class="comment_container">
+		<% @comments.each do |comment| %>
+			<div class="each_comment">
+				<li> 
+					<%= link_to (image_tag comment.user.avatar.url(:baby)), comment.user %>
+					<div class="comment_body">
+						<%= comment.body %>
+					</div>
+				</li>
+			</div>
+		<% end %>
+	</div>
+	<% end %>
+
+
+	<div class="comment_form_container">
+	 <%= render 'comments/form' %>
+
+	 </div>
+
+ </div>
+
+ </div>
+
 
 
 
